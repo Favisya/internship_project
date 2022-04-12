@@ -1,0 +1,16 @@
+<div style="font-size: 40px">
+  <span>
+    <%=@task.title %>
+  </span>
+  <div>
+    <%=@task.description %>
+
+  </div>
+  <%=@task.created_at %>
+  <div>
+    <%=@task.section.map{|i| i.title} %>
+  </div>
+  <div>
+
+  </div>
+</div>

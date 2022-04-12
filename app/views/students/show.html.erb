@@ -1,0 +1,45 @@
+<div style="font-size: 40px;">
+  <span>
+    <%=@student.first_name %>
+    <%=@student.last_name %>
+  </span>
+  <span>
+    <%=@student.email %>
+    <%=@student.created_at %>
+  </span>
+</div>
+<h1>All task of <%=@student.last_name %></h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th> Tasks</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @student.tasks.each do |task| %>>
+    <tr>
+      <td>
+        <%= task.title %>>
+      </td>
+      <td>
+        <%= task.description %>>
+      </td>
+      <td>
+        <%= task.created_at%>>
+      </td>
+      <td>
+        <%= link_to 'edit', edit_task_path(task) %>>
+      </td>
+      <td>
+        <%= link_to "show", task_path(task)  %>
+      </td>
+      <td>
+        <%= button_to'Destroy', (task) , data:{confirm: 'are u sure?'} %>>
+      </td>
+
+    </tr>
+  <% end %>>
+  </tbody>
+</table>
